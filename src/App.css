@@ -1,38 +1,226 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --background-color-off-white: #f8fbff;
+  --background-color-white: #ffffff;
+  --border-color: #eaecf0;
+  --button-color: #731ee2;
+  --error-color: red;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  font-size: 16px; /* base font size */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-size: 1rem; /* equivalent to the base font size */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Stylings for main container----------------------------------------------------------- */
+.container {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  height: 100vh;
+  width: 100vw;
+  padding: 3rem;
+  background-color: var(--background-color-off-white);
+  overflow-x: hidden;
+}
+
+.container h1 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.container p {
+  font-size: 1.5rem;
+}
+.tabs-container {
+  display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 0.1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.3rem;
+  width: 35rem;
+  padding: 0.2rem;
+  cursor: pointer;
+}
+.tabs-container div {
+  width: 100%;
+  border-radius: 0.3rem;
+  text-align: center;
+  padding: 0.4rem 0rem;
+}
+.backgroundWhite {
+  background-color: var(--background-color-white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.App-link {
-  color: #61dafb;
+/* Stylings for paragraph tab----------------------------------------------------------- */
+.paraInput {
+  width: 100%;
+  height: 19rem;
+  outline: none;
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color-white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 0.3rem;
+  resize: none;
+  padding: 0.6rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Stylings for word tab----------------------------------------------------------------- */
+.wordTab {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.wordSearch {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.wordSearch input {
+  width: 90%;
+  background-color: var(--background-color-white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 0.3rem;
+  border: none;
+  outline: var(--border-color);
+  padding: 0.5rem;
+}
+.wordSearch button {
+  cursor: pointer;
+  padding: 0.5rem;
+  background-color: var(--button-color);
+  border-radius: 0.3rem;
+  border: none;
+  color: var(--background-color-white);
+}
+
+.wordDetailsDiv {
+  padding: 1rem;
+  border-radius: 0.3rem;
+  border: 1px solid var(--border-color);
+}
+.detailLines {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.wordDetailsDiv table tbody tr,
+td {
+  padding: 0.5rem;
+}
+.wordDetailsDiv table tbody tr td p {
+  font-size: 1rem;
+}
+.boldResults {
+  font-weight: 500;
+}
+
+.errorText {
+  font-size: 1rem !important;
+  color: var(--error-color);
+}
+
+/* Stylings for the table---------------------------------------------------------------- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+.thead {
+  background-color: var(--background-color-white);
+}
+
+.th,
+.td {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+  font-weight: 400;
+}
+
+.tr:hover {
+  background-color: #f9f9f9;
+}
+
+.wordTable {
+  width: 27rem;
+}
+
+/* Responsive styles---------------------------------------------------------------------- */
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .tabs-container {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .tabs-container div {
+    padding: 0.5rem 0;
+  }
+
+  .paraInput {
+    height: auto;
+  }
+
+  .wordSearch {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .wordSearch input {
+    width: 100%;
+  }
+
+  .wordDetailsDiv {
+    padding: 0.5rem;
+  }
+
+  .wordDetailsDiv table tbody tr,
+  .wordDetailsDiv table tbody td {
+    padding: 0.3rem;
+  }
+
+  .wordDetailsDiv table tbody tr td p {
+    font-size: 0.9rem;
+  }
+
+  .wordTable {
+    width: 100%;
+  }
+
+  .table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+  .para-Table {
+    display: flex;
+  }
+  .para-Table .thead .tr {
+    display: flex;
+    flex-direction: column;
+  }
+  .para-Table .tbody {
+    width: 100%;
+  }
+  .para-Table .tbody .tr {
+    display: flex;
+    flex-direction: column;
   }
 }
